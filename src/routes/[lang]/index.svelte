@@ -1,14 +1,10 @@
 <script context="module">
-	export async function load({ page, fetch, session, context }) {
-		const lang = page.params.lang;
-
-		// Get homepage and menu content from api according to lang
-
-		if (lang) {
+	export async function load({ session }) {
+		if (session) {
 			// Return homepage content
 			return {
 				props: {
-					lang
+					session
 				}
 			};
 		}
@@ -16,8 +12,9 @@
 </script>
 
 <script>
-	export let lang;
+	export let session;
 </script>
 
 <h1>Home</h1>
-<p>{lang}</p>
+<p>{session.lang}</p>
+<p>{session.theme}</p>
