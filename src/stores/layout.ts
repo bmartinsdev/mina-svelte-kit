@@ -1,20 +1,25 @@
 
+import type { LayoutContent } from "src/types";
 import { writable } from "svelte/store";
 import contentful from './contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
 
 const defaultLayout = {
 	theme: 'light',
-	lang: 'en',
-	layout: {}
+	locale: 'en',
+	content: {}
 };
 
-const getLayout = async (lang) => {
-	console.log(lang);
-	const res = await contentful.getEntry('3tUUEUguOCqg1Uu2jjXq0I');
+const getLayout = async (locale) => {
+	const res: any = await contentful.getEntry('3tUUEUguOCqg1Uu2jjXq0I', { locale });
 
-	if (!res) throw new Error('Bad response')
+	if (!res.fields) throw new Error('Bad response');
+	if (res.fields?.footerText?.nodeType) {
+		res.fields.footerText = documentToHtmlString(res.fields.footerText);
+	}
 
-	return res;
+	return res.fields as LayoutContent;
 }
 
 function createLayoutStore() {
@@ -25,7 +30,9 @@ function createLayoutStore() {
 		getLayout: async (lang) => {
 			try {
 				const res = (await getLayout(lang));
-				update(state => (state = { ...state, layout: res }));
+				update(state => (state = { ...state, content: res }));
+
+				return res;
 			} catch (e) {
 				console.log(e.message);
 			}

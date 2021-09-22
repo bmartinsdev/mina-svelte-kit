@@ -16,5 +16,5 @@
 </script>
 
 <h1>Home</h1>
-<p>{session.lang}</p>
+<p>{session.locale}</p>
 <p>{session.theme}</p>
