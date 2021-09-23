@@ -1,5 +1,5 @@
 import { layoutStore } from './stores/layout';
-import { Layout } from './types';
+import type Layout from './types/LayoutContent';
 import cookie from 'cookie';
 
 /** @type {import('@sveltejs/kit').GetSession} */
@@ -11,11 +11,11 @@ export async function getSession(request) {
 
     const theme = cookies.theme || 'light';
 
-    const layout: Layout = {
+    const layout = {
         locale,
         theme,
         content: await layoutStore.getLayout(locale)
-    };
-    console.log(layout);
+    } as Layout;
+
     return layout;
 }

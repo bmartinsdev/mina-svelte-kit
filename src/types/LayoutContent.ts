@@ -1,9 +1,4 @@
-export interface Layout {
-    theme: string,
-    locale: string,
-    content?: LayoutContent
-}
-export interface LayoutContent {
+export default interface LayoutContent {
     email?: string,
     footerText?: string,
     homeTitle?: string,

@@ -1,5 +1,5 @@
 {
-  "name": "~TODO~",
+  "name": "mina-portfolio",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -19,7 +19,6 @@
     "@typescript-eslint/parser": "^4.19.0",
     "contentful": "^9.0.0",
     "cookie": "^0.4.1",
-    "dotenv": "^10.0.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-svelte3": "^3.2.0",
