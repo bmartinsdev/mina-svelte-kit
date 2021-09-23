@@ -1,8 +1,9 @@
 // svelte.config.js
-import adapter from '@sveltejs/adapter-node'
+import netlify from '@sveltejs/adapter-netlify'
 import 'dotenv/config'
 import replace from '@rollup/plugin-replace'
 import preprocess from 'svelte-preprocess'
+import pkg from './package.json'
 
 // Get env keys from .env file
 const keys = [
@@ -16,9 +17,12 @@ const replacements = Object.fromEntries(
 export default {
 	preprocess: preprocess(),
 	kit: {
-		adapter: adapter(),
+		adapter: netlify(),
 		target: `#svelte`,
 		vite: {
+			ssr: {
+				noExternal: Object.keys(pkg.dependencies || {}),
+			},
 			plugins: [replace(replacements)],
 		},
 	}
