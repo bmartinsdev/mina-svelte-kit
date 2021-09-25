@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	export async function load({ session }) {
 		if (session) {
 			// Return homepage content
@@ -11,10 +11,12 @@
 	}
 </script>
 
-<script>
-	export let session;
+<script lang="ts">
+	import type Layout from '../../types/Layout';
+
+	export let session: Layout;
 </script>
 
-<h1>Home</h1>
+<h1 class="text-3xl">{session.content.homeTitle}</h1>
 <p>{session.locale}</p>
 <p>{session.theme}</p>

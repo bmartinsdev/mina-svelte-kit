@@ -2,8 +2,7 @@
 module.exports = {
     purge: {
         enabled: process.env.NODE_ENV === 'production',
-        content: [
-            '**/*.svelte'
-        ]
+        mode: 'all',
+        content: ['./public/index.html', './src/**/*.svelte'],
     }
 }
