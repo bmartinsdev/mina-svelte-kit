@@ -3,9 +3,16 @@ import adapter from '@sveltejs/adapter-netlify'
 import preprocess from 'svelte-preprocess'
 
 export default {
-	preprocess: preprocess(),
+	preprocess: preprocess({
+		postcss: true
+	}),
 	kit: {
 		adapter: adapter(),
-		target: `#svelte`
+		target: `#svelte`,
+		vite: {
+			ssr: {
+				noExternal: []
+			}
+		}
 	}
 };

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;900&family=Rozha+One&display=swap');
+
+:root {
+    --font-archivo: 'Archivo', sans-serif
+    --font-rozha: 'Rozha One', serif
+}
+
+html{
+    font-family: var(--font-rozha)
+}
