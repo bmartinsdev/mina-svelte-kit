@@ -1,5 +1,5 @@
 import { layoutStore } from './stores/layout';
-import type Layout from './types/LayoutContent';
+import type Layout from './types/Layout';
 import cookie from 'cookie';
 
 /** @type {import('@sveltejs/kit').GetSession} */

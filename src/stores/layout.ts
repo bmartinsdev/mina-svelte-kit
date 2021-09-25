@@ -1,5 +1,4 @@
-
-import type { LayoutContent } from "src/types";
+import type LayoutContent from '../types/LayoutContent';
 import { writable } from "svelte/store";
 import contentful from './contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -11,7 +10,7 @@ const defaultLayout = {
 	content: {}
 };
 
-const getLayout = async (locale) => {
+const getLayout = async (locale: string) => {
 	const res: any = await contentful.getEntry('3tUUEUguOCqg1Uu2jjXq0I', { locale });
 
 	if (!res.fields) throw new Error('Bad response');
@@ -27,9 +26,9 @@ function createLayoutStore() {
 
 	return {
 		subscribe,
-		getLayout: async (lang) => {
+		getLayout: async (locale: string) => {
 			try {
-				const res = (await getLayout(lang));
+				const res = (await getLayout(locale));
 				update(state => (state = { ...state, content: res }));
 
 				return res;

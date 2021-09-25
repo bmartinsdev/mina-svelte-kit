@@ -6,6 +6,7 @@
 - [x] Contentful cms integration
 - [x] Localization support with routing
 - [x] SSR session with layout info from contentful
+- [ ] Fonts
 - [ ] TailwindCss
 - [ ] Light / Dark mode setup
 - [ ] Layout structure
