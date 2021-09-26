@@ -1,13 +1,27 @@
 :root {
-    --font-archivo: 'Archivo', sans-serif
-    --font-rozha: 'Rozha One', serif
+    --font-archivo: "Archivo", sans-serif;
+    --font-rozha: "Rozha One", serif;
+
+    --bg-color: #1c1c1c;
+    --color: #ffffff;
 }
 
-html{
-    font-family: var(--font-rozha)
+body {
+    &.light {
+        --bg-color: #ffffff;
+        --color: #1c1c1c;
+    }
+    color: var(--color);
+    background-color: var(--bg-color);
+    font-family: var(--font-rozha);
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
-h1, h2, h3, h4, h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: var(--font-archivo);
-    font-weight: 900
+    font-weight: 900;
 }

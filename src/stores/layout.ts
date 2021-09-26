@@ -11,6 +11,7 @@ const defaultLayout = {
 };
 
 const getLayout = async (locale: string) => {
+	console.log("requesting data");
 	const res: any = await space.getEntry('3tUUEUguOCqg1Uu2jjXq0I', { locale });
 
 	if (!res.fields) throw new Error('Bad response');

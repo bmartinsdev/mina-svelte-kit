@@ -9,7 +9,7 @@ export async function getSession(request) {
 
     const cookies = cookie.parse(request.headers.cookie || '')
 
-    const theme = cookies.theme || 'light';
+    const theme = cookies.theme || 'dark';
 
     const layout = {
         locale,
