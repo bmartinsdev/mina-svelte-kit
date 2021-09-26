@@ -12,22 +12,15 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Tailwind from '../libs/Tailwind.svelte';
-	import Header from '../components/Header.svelte';
+	import TopBar from '../components/header/TopBar.svelte';
 	import type Layout from '../types/Layout';
-
-	onMount(() => {
-		if (!('theme' in localStorage)) {
-			session.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		}
-	});
 
 	export let session: Layout;
 </script>
 
 <Tailwind />
-<Header {session} />
+<TopBar {session} />
 
 <slot />
 

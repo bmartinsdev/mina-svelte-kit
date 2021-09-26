@@ -1,2 +1,11 @@
-<h1>About</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	let temperature;
+</script>
+
+{#if temperature > 100}
+	<p>too hot!</p>
+{:else if 80 > temperature}
+	<p>too cold!</p>
+{:else}
+	<p>{temperature} just right!</p>
+{/if}

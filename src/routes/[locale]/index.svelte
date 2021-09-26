@@ -18,5 +18,3 @@
 </script>
 
 <h1 class="text-3xl">{session.content.homeTitle}</h1>
-<p>{session.locale}</p>
-<p>{session.theme}</p>
