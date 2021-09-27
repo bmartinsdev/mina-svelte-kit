@@ -14,10 +14,12 @@
 <script lang="ts">
 	import Tailwind from '../libs/Tailwind.svelte';
 	import TopBar from '../components/header/TopBar.svelte';
+	import Cursor from '../components/Cursor.svelte';
 </script>
 
 <Tailwind />
 <TopBar />
+<Cursor />
 
 <slot />
 
