@@ -31,7 +31,7 @@
 <style lang="scss">
 	.toggle-theme {
 		width: 2rem;
-		margin: 1rem;
+		margin: 2rem;
 		&:hover {
 			cursor: pointer;
 		}

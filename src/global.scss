@@ -5,16 +5,19 @@
     --bg-color: #1c1c1c;
     --color: #ffffff;
 }
-
 body {
     &.light {
         --bg-color: #ffffff;
         --color: #1c1c1c;
     }
+    display: flex;
     color: var(--color);
     background-color: var(--bg-color);
     font-family: var(--font-rozha);
     transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    #svelte {
+        flex: 1;
+    }
 }
 
 h1,

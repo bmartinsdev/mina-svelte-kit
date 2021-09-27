@@ -1,6 +1,18 @@
 <script lang="ts">
 	import DarkModeToggle from './DarkModeToggle.svelte';
-	export let session;
+	import Logo from './Logo.svelte';
 </script>
 
-<DarkModeToggle />
+<nav class="flex justify-between items-start">
+	<Logo />
+	<DarkModeToggle />
+</nav>
+
+<style lang="scss">
+	nav {
+		display: flex;
+		justify-content: space-between;
+		z-index: 30;
+		height: 10rem;
+	}
+</style>

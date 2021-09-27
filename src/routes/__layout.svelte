@@ -14,13 +14,10 @@
 <script lang="ts">
 	import Tailwind from '../libs/Tailwind.svelte';
 	import TopBar from '../components/header/TopBar.svelte';
-	import type Layout from '../types/Layout';
-
-	export let session: Layout;
 </script>
 
 <Tailwind />
-<TopBar {session} />
+<TopBar />
 
 <slot />
 

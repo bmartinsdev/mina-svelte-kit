@@ -1,6 +1,5 @@
 import { layoutStore } from './stores/layout';
 import type Layout from './types/Layout';
-import cookie from 'cookie';
 import type { Handle, GetSession } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ request, resolve }) => {

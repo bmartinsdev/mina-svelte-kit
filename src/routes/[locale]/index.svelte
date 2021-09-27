@@ -17,4 +17,12 @@
 	export let session: Layout;
 </script>
 
-<h1 class="text-3xl">{session.content.homeTitle}</h1>
+<div class="flex justify-center items-center banner">
+	<h1 class="text-3xl text-center">{@html session.content.homeTitle}</h1>
+</div>
+
+<style lang="scss">
+	.banner {
+		height: calc(100vh - 10rem);
+	}
+</style>
