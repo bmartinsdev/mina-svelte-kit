@@ -1,4 +1,9 @@
-<svg version="1.1" viewBox="0 0 90.646 103.61" xmlns="http://www.w3.org/2000/svg">
+<svg
+	version="1.1"
+	viewBox="0 0 90.646 103.61"
+	xmlns="http://www.w3.org/2000/svg"
+	class="cursor--hover"
+>
 	<g transform="translate(-18.474 -92.73)" class="logo-color">
 		<g transform="matrix(.26458 0 0 .26458 444.53 65.795)">
 			<polygon class="st0" points="-1278 351.1 -1522.3 475.9 -1513.1 493.4 -1267.7 368.7" />
@@ -12,8 +17,8 @@
 
 <style lang="scss">
 	svg {
-		width: 4rem;
-		margin: 2rem;
+		width: 8rem;
+		padding: 2rem;
 	}
 	.logo-color {
 		fill: var(--color);

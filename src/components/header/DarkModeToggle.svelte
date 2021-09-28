@@ -24,16 +24,13 @@
 <img
 	src={darkMode ? '/icons/sun.svg' : '/icons/moon.svg'}
 	alt="toggle theme"
-	class="toggle-theme"
+	class="toggle-theme cursor--hover"
 	on:click={toggleTheme}
 />
 
 <style lang="scss">
 	.toggle-theme {
-		width: 2rem;
-		margin: 2rem;
-		&:hover {
-			cursor: pointer;
-		}
+		width: 6rem;
+		padding: 2rem;
 	}
 </style>

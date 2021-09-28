@@ -18,7 +18,7 @@
 </script>
 
 <div class="flex justify-center items-center banner">
-	<h1 class="text-3xl text-center">{@html session.content.homeTitle}</h1>
+	<h1 class="text-3xl text-center cursor--hover">{@html session.content.homeTitle}</h1>
 </div>
 
 <style lang="scss">
