@@ -12,10 +12,10 @@
 	onMount(() => {
 		// Trigger mousemove follow
 		document.onmousemove = handleMouseMove;
-		updateLinkList();
+		setInterval(() => checkLinkList(), 1000);
 	});
 
-	function updateLinkList() {
+	async function checkLinkList() {
 		const triggers = document.querySelectorAll('.cursor--hover');
 		// Trigger link watching for custom animation
 		triggers.forEach((trigger) => {
@@ -36,8 +36,8 @@
 		const navItemBox = navItem.getBoundingClientRect();
 		mouseState = 'hover';
 
-		stuck.x = Math.round(navItemBox.left + navItemBox.width / 2 - 20);
-		stuck.y = Math.round(navItemBox.top + navItemBox.height / 2 - 20);
+		stuck.x = Math.round(navItemBox.left + navItemBox.width / 2);
+		stuck.y = Math.round(navItemBox.top + navItemBox.height / 2);
 		stuck.active = true;
 	}
 	function handleMouseLeave() {
@@ -53,16 +53,20 @@
 		position: absolute;
 		width: 25px;
 		height: 25px;
+		transform: translate(-50%, -50%);
 		border-radius: 50%;
 		pointer-events: none;
 		mix-blend-mode: difference;
 		border: 2px solid var(--color);
-		transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
+		transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
+			width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
+			background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
 		&.hover {
-			width: 40px;
-			height: 40px;
+			width: 60px;
+			height: 60px;
 			background-color: var(--color);
-			transition: left 0.4s ease-in-out, top 0.4s ease-in-out, background-color 0.4s ease-in-out;
+			transition: left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1),
+				top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
 		}
 	}
 </style>
