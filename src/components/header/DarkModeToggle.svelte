@@ -1,28 +1,35 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	onMount(() => {
-		darkMode = localStorage.getItem('theme');
+		theme = localStorage.getItem('theme');
 
-		if (!darkMode) {
-			darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			localStorage.setItem('theme', 'dark');
+		if (!['light', 'dark'].includes(theme)) {
+			theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 		}
+
+		setTheme();
 	});
 
-	function toggleTheme() {
-		if (darkMode) {
+	function setTheme() {
+		if (theme === 'light') {
 			document.body.classList.add('light');
+			localStorage.setItem('theme', 'light');
 		} else {
 			document.body.classList.remove('light');
+			localStorage.setItem('theme', 'dark');
 		}
-		darkMode = !darkMode;
+	}
+	function toggleTheme() {
+		theme = theme === 'dark' ? 'light' : 'dark';
+
+		setTheme();
 	}
 
-	let darkMode;
+	let theme;
 </script>
 
 <img
-	src={darkMode ? '/imgs/sun.svg' : '/imgs/moon.svg'}
+	src={theme != 'light' ? '/imgs/sun.svg' : '/imgs/moon.svg'}
 	alt="toggle theme"
 	class="toggle-theme cursor--hover"
 	on:click={toggleTheme}

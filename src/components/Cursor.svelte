@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
+	let interval;
 	let mousePos = { x: 0, y: 0 };
 	let mouseState = 'default';
 	let stuck = {
@@ -12,7 +13,11 @@
 	onMount(() => {
 		// Trigger mousemove follow
 		document.onmousemove = handleMouseMove;
-		setInterval(() => checkLinkList(), 1000);
+		interval = setInterval(() => checkLinkList(), 1000);
+	});
+
+	onDestroy(() => {
+		clearInterval(interval);
 	});
 
 	async function checkLinkList() {
@@ -50,7 +55,7 @@
 
 <style lang="scss">
 	#cursor {
-		position: absolute;
+		position: fixed;
 		width: 25px;
 		height: 25px;
 		transform: translate(-50%, -50%);

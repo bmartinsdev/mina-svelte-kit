@@ -62,6 +62,7 @@
 		height: calc(100vh - 10rem);
 		.logo-holder {
 			width: 30rem;
+			max-width: 80%;
 			padding: 2rem;
 			.logo-color {
 				fill: var(--color);
