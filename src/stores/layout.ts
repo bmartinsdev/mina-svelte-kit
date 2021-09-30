@@ -12,7 +12,7 @@ const defaultLayout = {
 
 const getLayout = async (locale: string) => {
 	const res: any = await space.getEntry('3tUUEUguOCqg1Uu2jjXq0I', { locale });
-	console.log(res);
+
 	if (!res.fields) throw new Error('Bad response');
 	if (res.fields?.footerText?.nodeType) {
 		res.fields.footerText = documentToHtmlString(res.fields.footerText);

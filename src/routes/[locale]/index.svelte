@@ -1,5 +1,11 @@
 <script context="module" lang="ts">
-	export async function load({ session }) {
+	export async function load({ session, page }) {
+		if (!['en', 'pt'].includes(page?.params?.locale)) {
+			return {
+				status: 301,
+				redirect: `/en/${page.path}`
+			};
+		}
 		if (session) {
 			// Return homepage content
 			return {
