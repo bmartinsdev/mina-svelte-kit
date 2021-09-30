@@ -1,7 +1,7 @@
 export default interface LayoutContent {
     email?: string,
-    footerText?: string,
+    copyright?: string,
     homeTitle?: string,
     slogan?: string,
-    socialNetworks?: [string, string]
+    socialNetworks: [string, string]
 }
