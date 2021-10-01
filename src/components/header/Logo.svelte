@@ -17,8 +17,8 @@
 
 <style lang="scss">
 	svg {
-		width: 8rem;
-		padding: 2rem;
+		width: 4rem;
+		margin: 2rem;
 	}
 	.logo-color {
 		fill: var(--color);

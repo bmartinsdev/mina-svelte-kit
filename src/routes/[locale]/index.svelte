@@ -28,7 +28,7 @@
 		{@html session.content.homeTitle}
 	</h1>
 </div>
-<div class="flex items-end footer">
+<div class="flex items-end bottom">
 	<div class="logo-holder">
 		<svg version="1.1" viewBox="0 0 187.3 55.192" xmlns="http://www.w3.org/2000/svg">
 			<g transform="translate(20.12 -40.527)" class="logo-color">
@@ -62,14 +62,14 @@
 
 <style lang="scss">
 	.banner {
-		height: calc(100vh - 10rem);
+		height: calc(100vh - 14rem);
 	}
-	.footer {
-		height: calc(100vh - 10rem);
+	.bottom {
+		height: calc(100vh - 14rem);
 		.logo-holder {
-			width: 30rem;
+			width: 28rem;
 			max-width: 80%;
-			padding: 2rem;
+			margin: 2rem;
 			.logo-color {
 				fill: var(--color);
 			}

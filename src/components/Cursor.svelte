@@ -56,22 +56,24 @@
 <style lang="scss">
 	#cursor {
 		position: fixed;
-		width: 25px;
-		height: 25px;
+		width: 20px;
+		height: 20px;
 		transform: translate(-50%, -50%);
 		border-radius: 50%;
 		pointer-events: none;
 		mix-blend-mode: difference;
-		border: 2px solid var(--color);
+		background-color: var(--color);
 		transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 			width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 			background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
 		&.hover {
-			width: 60px;
-			height: 60px;
+			width: 50px;
+			height: 50px;
 			background-color: var(--color);
-			transition: left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1),
-				top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+			transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
+				width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
+				background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
+				left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1), top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
 		}
 	}
 </style>

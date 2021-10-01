@@ -37,7 +37,7 @@
 
 <style lang="scss">
 	.toggle-theme {
-		width: 6rem;
-		padding: 2rem;
+		width: 2.5rem;
+		margin: 2rem;
 	}
 </style>
