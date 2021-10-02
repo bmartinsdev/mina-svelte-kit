@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	export let copyright: string = '';
 	export let email: string = '';
 	export let socialNetworks: [string, string];
@@ -9,8 +10,8 @@
 		currentLang = ['en', 'pt'].includes(currentLang) ? currentLang : 'en';
 
 		if (newLang === currentLang) return;
-
-		window.location.href = window.location.href.replace(currentLang, newLang);
+		const goToRoute = window.location.href.replace(currentLang, newLang);
+		goto(goToRoute);
 	}
 </script>
 
