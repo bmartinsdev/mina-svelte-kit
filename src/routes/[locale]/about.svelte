@@ -4,7 +4,7 @@
 	export async function load({ session }) {
 		if (session) {
 			const about = await aboutStore.getContent(session.locale);
-			console.log(about);
+
 			// Return homepage content
 			return {
 				props: {

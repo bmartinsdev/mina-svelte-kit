@@ -1,7 +1,6 @@
 import type LayoutContent from '../types/LayoutContent';
 import { writable } from "svelte/store";
-import space from './contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import space, { parseContentfulHtml } from './contentful';
 
 
 const defaultLayout = {
@@ -15,7 +14,7 @@ const getLayout = async (locale: string) => {
 
 	if (!res.fields) throw new Error('Bad response');
 	if (res.fields?.footerText?.nodeType) {
-		res.fields.footerText = documentToHtmlString(res.fields.footerText);
+		res.fields.footerText = parseContentfulHtml(res.fields.footerText);
 	}
 
 	return res.fields as LayoutContent;

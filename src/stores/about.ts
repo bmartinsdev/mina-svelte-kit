@@ -1,7 +1,7 @@
 import type About from '../types/About';
 import { writable } from "svelte/store";
 import space from './contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { parseContentfulHtml, parseContentfulImage } from './contentful';
 
 
 const defaultAbout = {
@@ -18,17 +18,14 @@ const getContent = async (locale: string) => {
 	// Html parser
 	for (const field of ['description', 'bio']) {
 		if (res.fields[field]?.nodeType) {
-			res.fields[field] = documentToHtmlString(res.fields[field]);
+			res.fields[field] = parseContentfulHtml(res.fields[field])
 		}
 	}
 
 	//Image parser
 	for (const field of ['image', 'photo']) {
 		if (res.fields[field]?.fields?.file) {
-			res.fields[field] = {
-				path: res.fields[field].fields.file.url,
-				title: res.fields[field].fields.title
-			};
+			res.fields[field] = parseContentfulImage(res.fields[field])
 		}
 	}
 
