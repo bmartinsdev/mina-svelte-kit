@@ -1,12 +1,17 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+
 	export let copyright: string = '';
 	export let email: string = '';
 	export let socialNetworks: [string, string];
+	let currentLang: string;
 
-	const current = window.location.pathname;
-	let currentLang = current.split('/')[1];
-	currentLang = ['en', 'pt'].includes(currentLang) ? currentLang : 'en';
+	onMount(() => {
+		const current = window.location.pathname;
+		currentLang = current.split('/')[1];
+		currentLang = ['en', 'pt'].includes(currentLang) ? currentLang : 'en';
+	});
 
 	function swapLang(newLang) {
 		if (newLang === currentLang) return;
