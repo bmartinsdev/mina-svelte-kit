@@ -54,9 +54,9 @@
 				/>
 			</g>
 		</svg>
-		<h4>
+		<h2>
 			{@html session.content.slogan}
-		</h4>
+		</h2>
 	</div>
 </div>
 
@@ -73,7 +73,7 @@
 			.logo-color {
 				fill: var(--color);
 			}
-			h4 {
+			h2 {
 				margin-top: 2rem;
 				font-weight: 100;
 				font-size: 1.6rem;

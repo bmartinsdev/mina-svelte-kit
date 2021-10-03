@@ -4,11 +4,11 @@
 	export let email: string = '';
 	export let socialNetworks: [string, string];
 
-	function swapLang(newLang) {
-		const current = window.location.pathname;
-		let currentLang = current.split('/')[1];
-		currentLang = ['en', 'pt'].includes(currentLang) ? currentLang : 'en';
+	const current = window.location.pathname;
+	let currentLang = current.split('/')[1];
+	currentLang = ['en', 'pt'].includes(currentLang) ? currentLang : 'en';
 
+	function swapLang(newLang) {
 		if (newLang === currentLang) return;
 		const goToRoute = window.location.href.replace(currentLang, newLang);
 		goto(goToRoute);
@@ -17,8 +17,8 @@
 
 <footer class="flex justify-between items-end">
 	<ul class="language">
-		<li on:click={() => swapLang('en')} class="cursor--hover">en</li>
-		<li on:click={() => swapLang('pt')} class="cursor--hover">pt</li>
+		<li on:click={() => swapLang('en')} class={currentLang !== 'en' ? 'cursor--hover' : ''}>en</li>
+		<li on:click={() => swapLang('pt')} class={currentLang !== 'pt' ? 'cursor--hover' : ''}>pt</li>
 	</ul>
 	<h4 class="copyright">{@html copyright}</h4>
 	<div class="contacts">
@@ -36,7 +36,7 @@
 <style lang="scss">
 	footer {
 		padding: 2rem;
-		height: 14rem;
+		height: 12rem;
 		background-color: var(--color);
 		color: var(--bg-color);
 		.language {
@@ -45,6 +45,7 @@
 		.copyright {
 			font-family: var(--font-archivo);
 			font-weight: 100;
+			font-size: 1.2rem;
 		}
 		.contacts {
 			font-size: 2.6rem;

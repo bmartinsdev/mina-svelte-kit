@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let locale;
-
-	console.log(locale);
 </script>
 
 <nav>

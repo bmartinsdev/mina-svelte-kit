@@ -1,2 +1,11 @@
-<h1>Work</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="works">
+	<h1 class="text-center">work</h1>
+</div>
+
+<style lang="scss">
+	.works {
+		margin: 2rem;
+		height: 20rem;
+		min-height: 60vh;
+	}
+</style>

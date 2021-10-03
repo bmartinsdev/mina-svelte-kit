@@ -21,16 +21,42 @@
 	export let about: About;
 </script>
 
-<div class="flex justify-center items-center flex-col">
-	<p class="text text-center">
+<div class="about-content">
+	<div class="description">
 		{@html about.description}
-	</p>
-	<img src={about.image.path} alt={about.image.title} />
-	<p class="text text-center">
+	</div>
+	<div class="image">
+		<img src={about.image.path} alt={about.image.title} />
+	</div>
+	<div class="bio">
 		{@html about.bio}
-	</p>
-	<img src={about.photo.path} alt={about.photo.title} />
+	</div>
+	<div class="photo">
+		<img src={about.photo.path} alt={about.photo.title} />
+	</div>
 </div>
 
 <style lang="scss">
+	.about-content {
+		margin: 2rem;
+		display: grid;
+		grid-gap: 2rem;
+		grid-template-columns: 1fr 1fr;
+		.description {
+			grid-column: 1;
+			grid-row: 1;
+		}
+		.image {
+			grid-column: 2;
+			grid-row: 1;
+		}
+		.bio {
+			grid-column: 2;
+			grid-row: 2;
+		}
+		.photo {
+			grid-column: 1;
+			grid-row: 2;
+		}
+	}
 </style>
