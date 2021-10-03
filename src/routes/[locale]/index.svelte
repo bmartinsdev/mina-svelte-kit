@@ -23,12 +23,12 @@
 	export let session: Layout;
 </script>
 
-<div class="flex justify-center items-center flex-col banner">
+<section class="flex justify-center items-center flex-col banner">
 	<h1 class="text-3xl text-center cursor--hover">
 		{@html session.content.homeTitle}
 	</h1>
-</div>
-<div class="flex items-end bottom">
+</section>
+<section class="flex items-end bottom">
 	<div class="logo-holder">
 		<svg version="1.1" viewBox="0 0 187.3 55.192" xmlns="http://www.w3.org/2000/svg">
 			<g transform="translate(20.12 -40.527)" class="logo-color">
@@ -58,7 +58,7 @@
 			{@html session.content.slogan}
 		</h2>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	.banner {

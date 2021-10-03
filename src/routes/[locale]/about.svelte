@@ -21,20 +21,20 @@
 	export let about: About;
 </script>
 
-<div class="about-content">
-	<div class="description">
+<section class="about-content">
+	<article class="description">
 		{@html about.description}
-	</div>
-	<div class="image">
+	</article>
+	<figure class="image">
 		<img src={about.image.path} alt={about.image.title} />
-	</div>
-	<div class="bio">
+	</figure>
+	<article class="bio">
 		{@html about.bio}
-	</div>
-	<div class="photo">
+	</article>
+	<figure class="photo">
 		<img src={about.photo.path} alt={about.photo.title} />
-	</div>
-</div>
+	</figure>
+</section>
 
 <style lang="scss">
 	.about-content {

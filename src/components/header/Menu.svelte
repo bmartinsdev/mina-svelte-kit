@@ -2,15 +2,13 @@
 	export let locale;
 </script>
 
-<nav>
-	<ul>
-		<li><a sveltekit:prefetch href={`/${locale}/work`} class="cursor--hover">work</a></li>
-		<li><a sveltekit:prefetch href={`/${locale}/about`} class="cursor--hover">about</a></li>
-	</ul>
-</nav>
+<ul>
+	<li><a sveltekit:prefetch href={`/${locale}/work`} class="cursor--hover">work</a></li>
+	<li><a sveltekit:prefetch href={`/${locale}/about`} class="cursor--hover">about</a></li>
+</ul>
 
 <style lang="scss">
-	nav {
+	ul {
 		font-size: 1.4rem;
 		line-height: 2.6rem;
 		margin-bottom: 1rem;

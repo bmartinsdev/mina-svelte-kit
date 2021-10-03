@@ -26,7 +26,7 @@
 		<li on:click={() => swapLang('pt')} class={currentLang !== 'pt' ? 'cursor--hover' : ''}>pt</li>
 	</ul>
 	<h4 class="copyright">{@html copyright}</h4>
-	<div class="contacts">
+	<nav class="contacts">
 		<h2>{email}</h2>
 		{#if socialNetworks}
 			<ul class="networks flex justify-between">
@@ -35,7 +35,7 @@
 				{/each}
 			</ul>
 		{/if}
-	</div>
+	</nav>
 </footer>
 
 <style lang="scss">
