@@ -15,8 +15,12 @@
 
 	function swapLang(newLang) {
 		if (newLang === currentLang) return;
-		const goToRoute = window.location.href.replace(currentLang, newLang);
-		goto(goToRoute);
+		const goToRoute = window.location.pathname.replace(currentLang, newLang);
+
+		// Required for session preload with the right language
+		window.location.pathname = goToRoute;
+
+		goto(goToRoute, { noscroll: true });
 	}
 </script>
 
