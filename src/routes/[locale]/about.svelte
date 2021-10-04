@@ -17,6 +17,7 @@
 
 <script lang="ts">
 	import type About from '../../types/About';
+	import Image from '../../components/shared/Image.svelte';
 
 	export let about: About;
 </script>
@@ -26,13 +27,13 @@
 		{@html about.description}
 	</article>
 	<figure class="image">
-		<img src={about.image.path} alt={about.image.title} />
+		<Image img={about.image} />
 	</figure>
 	<article class="bio">
 		{@html about.bio}
 	</article>
 	<figure class="photo">
-		<img src={about.photo.path} alt={about.photo.title} />
+		<Image img={about.photo} />
 	</figure>
 </section>
 

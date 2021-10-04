@@ -1,4 +1,5 @@
 export default interface Image {
-    path: string,
+    thumb: string,
+    large: string,
     title: string
 }
