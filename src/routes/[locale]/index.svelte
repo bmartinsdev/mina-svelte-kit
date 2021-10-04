@@ -18,15 +18,33 @@
 </script>
 
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import type Layout from '../../types/Layout';
 
 	export let session: Layout;
+	let scrollY;
+	let loaded = false;
+
+	onMount(() => {
+		setTimeout(() => (loaded = true), 300);
+	});
 </script>
 
 <section class="flex justify-center items-center flex-col banner">
 	<h1 class="text-3xl text-center cursor--hover">
 		{@html session.content.homeTitle}
 	</h1>
+	<div class="overlay flex justify-center items-center">
+		<div class="left flex left-0 {loaded && scrollY < 100 ? '' : 'open'}">
+			<div class="curtain flex-grow" />
+			<div class="gradient-bar" />
+		</div>
+		<div class="right flex right-0 {loaded && scrollY < 100 ? '' : 'open'}">
+			<div class="gradient-bar" />
+			<div class="curtain flex-grow" />
+		</div>
+	</div>
 </section>
 <section class="flex items-end bottom">
 	<div class="logo-holder">
@@ -60,9 +78,44 @@
 	</div>
 </section>
 
+<svelte:window bind:scrollY />
+
 <style lang="scss">
 	.banner {
 		height: calc(100vh - 14rem);
+		.overlay {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			.left,
+			.right {
+				height: 40vh;
+				width: 20%;
+				position: absolute;
+				transition: width 1s ease-in-out;
+				&.open {
+					width: 140%;
+				}
+			}
+			.left .gradient-bar {
+				transform: translateX(-1rem) rotate(20deg);
+			}
+			.right .gradient-bar {
+				transform: translateX(1rem) rotate(20deg);
+			}
+			.gradient-bar {
+				width: 2rem;
+				height: 100%;
+				background: rgb(167, 98, 211);
+				background: linear-gradient(0deg, rgba(167, 98, 211, 1) 0%, rgba(79, 231, 193, 1) 100%);
+				z-index: 10;
+			}
+			.curtain {
+				background-color: var(--bg-color);
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 	.bottom {
 		height: calc(100vh - 14rem);
