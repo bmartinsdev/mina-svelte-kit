@@ -74,4 +74,12 @@
 			}
 		}
 	}
+	@media (max-width: 576px) {
+		footer .language {
+			width: 100%;
+			li {
+				display: inline-block;
+			}
+		}
+	}
 </style>

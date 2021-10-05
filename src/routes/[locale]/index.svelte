@@ -96,7 +96,7 @@
 			z-index: 5;
 			.left,
 			.right {
-				height: 40vh;
+				height: 60vh;
 				width: 20%;
 				position: absolute;
 				transition: width 1s ease-in-out;
@@ -105,14 +105,14 @@
 				}
 			}
 			.left .gradient-bar {
-				transform: translateX(-1rem) rotate(20deg);
+				transform: translate(-1rem, -1rem) rotate(40deg);
 			}
 			.right .gradient-bar {
-				transform: translateX(1rem) rotate(20deg);
+				transform: translate(1rem, 8rem) rotate(40deg);
 			}
 			.gradient-bar {
 				width: 2rem;
-				height: 100%;
+				height: 40vh;
 				background: rgb(167, 98, 211);
 				background: linear-gradient(0deg, rgba(167, 98, 211, 1) 0%, rgba(79, 231, 193, 1) 100%);
 				z-index: 10;
@@ -143,14 +143,17 @@
 			}
 		}
 	}
-	@media (max-width: 992px) {
-	}
-	@media (max-width: 768px) {
-	}
 	@media (max-width: 576px) {
-		.banner {
-			h1 {
-				font-size: 1rem;
+		.banner h1 {
+			font-size: 1rem;
+		}
+		.bottom .logo-holder h2 {
+			font-size: 1rem;
+		}
+		.banner .overlay {
+			.left,
+			.right {
+				transition: width 0.4s ease-in-out;
 			}
 		}
 	}
