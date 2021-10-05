@@ -44,24 +44,33 @@
 
 <style lang="scss">
 	footer {
-		padding: 2rem;
-		height: 12rem;
 		background-color: var(--color);
 		color: var(--bg-color);
+		flex-wrap: wrap;
+		padding: 1rem;
 		.language {
 			font-size: 1.3rem;
+			margin: 0.4rem;
 		}
 		.copyright {
 			font-family: var(--font-archivo);
 			font-weight: 100;
 			font-size: 1.2rem;
+			margin: 0.4rem;
 		}
 		.contacts {
+			margin: 0.4rem;
 			font-size: 2.6rem;
 			.networks {
 				font-size: 1.4rem;
 				font-family: var(--font-archivo);
 				font-weight: 100;
+				li {
+					padding-right: 0.8rem;
+					&:last-child {
+						padding-right: unset;
+					}
+				}
 			}
 		}
 	}
