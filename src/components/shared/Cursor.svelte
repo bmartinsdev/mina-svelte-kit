@@ -55,6 +55,7 @@
 
 <style lang="scss">
 	#cursor {
+		z-index: 99;
 		position: fixed;
 		width: 20px;
 		height: 20px;

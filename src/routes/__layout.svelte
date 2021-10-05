@@ -20,7 +20,7 @@
 	export let session: Layout;
 </script>
 
-<TopBar locale={session.locale} />
+<TopBar {...session} />
 <Cursor />
 <slot />
 <Footer {...session.content} />

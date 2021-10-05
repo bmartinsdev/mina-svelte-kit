@@ -3,12 +3,13 @@
 	import Logo from './Logo.svelte';
 	import Menu from './Menu.svelte';
 	export let locale;
+	export let maintenance;
 </script>
 
 <nav class="flex justify-between items-start">
 	<Logo />
 	<div class="right-panel">
-		<Menu {locale} />
+		{#if !maintenance}<Menu {locale} />{/if}
 		<DarkModeToggle />
 	</div>
 </nav>

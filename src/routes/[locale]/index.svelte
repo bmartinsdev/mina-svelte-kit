@@ -82,11 +82,13 @@
 
 <style lang="scss">
 	.banner {
+		position: relative;
 		height: calc(100vh - 14rem);
 		.overlay {
 			position: absolute;
 			height: 100%;
 			width: 100%;
+			z-index: 5;
 			.left,
 			.right {
 				height: 40vh;
@@ -111,6 +113,7 @@
 				z-index: 10;
 			}
 			.curtain {
+				transition: background-color 0.4s ease-in-out;
 				background-color: var(--bg-color);
 				width: 100%;
 				height: 100%;

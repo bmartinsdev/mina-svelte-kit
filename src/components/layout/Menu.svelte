@@ -9,6 +9,7 @@
 
 <style lang="scss">
 	ul {
+		z-index: 10;
 		font-size: 1.4rem;
 		line-height: 2.6rem;
 		margin-bottom: 1rem;
