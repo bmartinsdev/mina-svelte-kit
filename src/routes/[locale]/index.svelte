@@ -101,14 +101,14 @@
 				position: absolute;
 				transition: width 1s ease-in-out;
 				&.open {
-					width: 140%;
+					width: 160%;
 				}
 			}
 			.left .gradient-bar {
-				transform: translate(-1rem, -1rem) rotate(40deg);
+				transform: translate(-1rem, -1rem) rotate(60deg);
 			}
 			.right .gradient-bar {
-				transform: translate(1rem, 8rem) rotate(40deg);
+				transform: translate(2rem, 9rem) rotate(60deg);
 			}
 			.gradient-bar {
 				width: 2rem;
@@ -126,7 +126,7 @@
 		}
 	}
 	.bottom {
-		height: 80vh;
+		height: 50vh;
 		.logo-holder {
 			width: 28rem;
 			max-width: 70%;
@@ -145,9 +145,10 @@
 	}
 	@media (max-width: 576px) {
 		.banner h1 {
-			font-size: 1rem;
+			font-size: 1.2rem;
 		}
 		.bottom .logo-holder h2 {
+			margin-top: 1rem;
 			font-size: 1rem;
 		}
 		.banner .overlay {

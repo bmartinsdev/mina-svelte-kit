@@ -23,41 +23,48 @@
 </script>
 
 <section class="about-content">
-	<article class="description">
-		{@html about.description}
-	</article>
-	<figure class="image">
-		<Image img={about.image} />
-	</figure>
-	<article class="bio">
-		{@html about.bio}
-	</article>
-	<figure class="photo">
-		<Image img={about.photo} />
-	</figure>
+	<div class="left">
+		<article class="description">
+			{@html about.description}
+		</article>
+		<figure class="image">
+			<Image img={about.image} />
+		</figure>
+	</div>
+	<div class="right">
+		<figure class="photo">
+			<Image img={about.photo} />
+		</figure>
+		<article class="bio">
+			{@html about.bio}
+		</article>
+	</div>
 </section>
 
 <style lang="scss">
 	.about-content {
-		margin: 2rem;
-		display: grid;
-		grid-gap: 2rem;
-		grid-template-columns: 1fr 1fr;
-		.description {
-			grid-column: 1;
-			grid-row: 1;
+		margin: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		.left,
+		.right {
+			width: 50%;
 		}
-		.image {
-			grid-column: 2;
-			grid-row: 1;
+		figure,
+		article {
+			padding: 1rem;
 		}
-		.bio {
-			grid-column: 2;
-			grid-row: 2;
-		}
-		.photo {
-			grid-column: 1;
-			grid-row: 2;
+	}
+	@media (max-width: 916px) {
+		.about-content {
+			.left,
+			.right {
+				width: 100%;
+			}
+			.right {
+				display: flex;
+				flex-direction: column-reverse;
+			}
 		}
 	}
 </style>

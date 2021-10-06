@@ -31,7 +31,7 @@
 	</ul>
 	<h4 class="copyright">{@html copyright}</h4>
 	<nav class="contacts">
-		<h2>{email}</h2>
+		<h2><a href="mailto:{email}" class="--cursor-hover">{email}</a></h2>
 		{#if socialNetworks}
 			<ul class="networks flex justify-between">
 				{#each Object.entries(socialNetworks) as [name, link]}
@@ -55,7 +55,7 @@
 		.copyright {
 			font-family: var(--font-archivo);
 			font-weight: 100;
-			font-size: 1.2rem;
+			font-size: 1.1rem;
 			margin: 0.4rem;
 		}
 		.contacts {
