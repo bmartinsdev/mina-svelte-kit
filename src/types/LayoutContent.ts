@@ -3,5 +3,7 @@ export default interface LayoutContent {
     copyright?: string,
     homeTitle?: string,
     slogan?: string,
-    socialNetworks: [string, string]
+    socialNetworks: [string, string],
+    seoTitle?: string,
+    seoDescription?: string
 }

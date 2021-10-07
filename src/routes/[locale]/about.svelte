@@ -8,6 +8,7 @@
 			// Return homepage content
 			return {
 				props: {
+					session,
 					about
 				}
 			};
@@ -18,9 +19,16 @@
 <script lang="ts">
 	import type About from '../../types/About';
 	import Image from '../../components/shared/Image.svelte';
+	import type Layout from '../../types/Layout';
 
+	export let session: Layout;
 	export let about: About;
 </script>
+
+<svelte:head>
+	<title>{session.content.seoTitle} • {about.seoTitle}</title>
+	<meta name="description" content={about.seoDescription} />
+</svelte:head>
 
 <section class="about-content">
 	<div class="left">

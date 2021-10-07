@@ -23,6 +23,7 @@
 	import type Layout from '../../types/Layout';
 
 	export let session: Layout;
+
 	let scrollY;
 	let loaded = false;
 
@@ -30,6 +31,11 @@
 		setTimeout(() => (loaded = true), 300);
 	});
 </script>
+
+<svelte:head>
+	<title>{session.content.seoTitle}</title>
+	<meta name="description" content={session.content.seoDescription} />
+</svelte:head>
 
 <section class="flex justify-center items-center flex-col banner">
 	<h1 class="text-center cursor--hover">
