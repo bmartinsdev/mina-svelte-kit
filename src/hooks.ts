@@ -13,7 +13,7 @@ export const handle: Handle = async ({ request, resolve }) => {
     request.locals.layout = {
         locale,
         maintenance,
-        content: await layoutStore.getLayout(locale)
+        content: await layoutStore.get(locale)
     } as Layout;
 
     const response = await resolve(request);

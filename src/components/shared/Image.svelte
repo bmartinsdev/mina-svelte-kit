@@ -15,7 +15,7 @@
 			setTimeout(() => {
 				src = img.large;
 				blurred = false;
-			}, 300);
+			}, 200);
 		};
 	});
 </script>

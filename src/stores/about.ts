@@ -33,16 +33,11 @@ const getContent = async (locale: string) => {
 }
 
 function createAboutStore() {
-	const { subscribe, update } = writable(defaultAbout);
 
 	return {
-		subscribe,
 		getContent: async (locale: string) => {
 			try {
-				const res = (await getContent(locale));
-				update(state => (state = { ...state }));
-
-				return res;
+				return await getContent(locale);
 			} catch (e) {
 				console.log(e.message);
 			}

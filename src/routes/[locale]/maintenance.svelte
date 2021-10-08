@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	onMount(() => (document.cookie = `maintenance=false`));
-</script>
+	onMount(() => {
+		document.cookie = `maintenance=false`;
 
-<section class="about-content text-center min-h-full">Cookie set</section>
+		goto('/');
+	});
+</script>
