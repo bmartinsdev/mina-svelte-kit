@@ -4,7 +4,7 @@ import space from '$stores/contentful';
 import { parseContentfulHtml, parseContentfulImage } from '$stores/contentful';
 
 // Default getList parameteres
-const getListFields = ['slug', 'title', 'subtitle', 'thumbnail', 'order'];
+const getListFields = ['slug', 'title', 'subtitle', 'thumbnail', 'order', 'type'];
 const getListParams = {
 	select: `sys.id,fields.${getListFields.join(',fields.')}`,
 	limit: 6,

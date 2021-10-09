@@ -5,6 +5,7 @@ export default interface Work {
     slug: string,
     subtitle: string,
     thumbnail: Image,
+    type: string,
     description?: string,
     seoDescription?: string,
     date?: Date,

@@ -17,6 +17,7 @@
 </script>
 
 <script lang="ts">
+	import Image from '$components/shared/Image.svelte';
 	import type WorkList from '$types/WorkList';
 	import type Layout from '$types/Layout';
 	import { goto } from '$app/navigation';
@@ -51,15 +52,33 @@
 
 <div class="works">
 	{#each works.items as work}
-		<h3 on:click={() => goToRoute(work.slug)}>{work.title}</h3>
-		<small>{work.subtitle}</small>
+		<article class={work.type} on:click={() => goToRoute(work.slug)}>
+			<figure>
+				<Image img={work.thumbnail} />
+			</figure>
+		</article>
 	{/each}
 	{#if works.missing > 0}<h1 on:click={loadMore}>Load more</h1>{/if}
 </div>
 
 <style lang="scss">
 	.works {
+		display: flex;
+		flex-wrap: wrap;
 		margin: 2rem;
 		min-height: 60vh;
+		gap: 2%;
+
+		article {
+			&.small {
+				width: 26%;
+			}
+			&.medium {
+				width: 32%;
+			}
+			&.large {
+				width: 38%;
+			}
+		}
 	}
 </style>
