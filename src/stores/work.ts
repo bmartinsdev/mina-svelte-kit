@@ -3,27 +3,50 @@ import type WorkList from '../types/WorkList';
 import space from './contentful';
 import { parseContentfulHtml, parseContentfulImage } from './contentful';
 
-
-const fieldsList = ['slug', 'title', 'subtitle', 'thumbnail'];
+// Default getList parameteres
+const getListFields = ['slug', 'title', 'subtitle', 'thumbnail', 'order'];
 const getListParams = {
-	select: `sys.id,fields.${fieldsList.join(',fields.')}`,
+	select: `sys.id,fields.${getListFields.join(',fields.')}`,
 	limit: 6,
+	content_type: 'works',
+	order: '-fields.order'
+};
+
+// Default get parameteres
+const getFields = ['title', 'slug', 'description', 'subtitle', 'date', 'gallery'];
+const getParams = {
+	select: `sys.id,fields.${getFields.join(',fields.')}`,
+	limit: 1,
 	content_type: 'works'
 };
 
-const get = async (id: string, locale: string) => {
-	const res: any = await space.getEntry(id, { locale });
+const get = async (slug: string, locale: string) => {
+	const res: any = await space.getEntries({
+		'fields.slug[match]': slug,
+		locale,
+		...getParams
+	});
 
-	// Gallery image parse
-	if (res.fields['gallery']?.fields?.file) {
-		const gallery = [];
-		for (const image of res.fields['gallery']) {
-			gallery.push(parseContentfulImage(image));
-		}
-		res.fields['gallery'] = gallery;
+	if (!res.items?.length) throw new Error('Bad response');
+	const work = res.items[0];
+	console.log(work.fields);
+	// Parse description
+	if (work.fields['description']?.nodeType) {
+		work.fields['description'] = parseContentfulHtml(work.fields['description'])
 	}
 
-	return res.fields as Work;
+	// Gallery image parse
+	if (work.fields['gallery']?.length) {
+		const gallery = [];
+		for (const image of work.fields['gallery']) {
+			gallery.push(parseContentfulImage(image));
+		}
+		work.fields['gallery'] = gallery;
+	}
+
+	work.fields['id'] = work.sys.id;
+
+	return work.fields as Work;
 }
 
 const getList = async (locale: string, skip: number = 0) => {
@@ -53,9 +76,9 @@ const getList = async (locale: string, skip: number = 0) => {
 
 function createWorkStore() {
 	return {
-		get: async (locale: string, id: string): Promise<Work> => {
+		get: async (locale: string, slug: string): Promise<Work> => {
 			try {
-				return await get(id, locale);
+				return await get(slug, locale);
 			} catch (e) {
 				console.log(e.message);
 			}
