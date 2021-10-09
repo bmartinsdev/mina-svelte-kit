@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { aboutStore } from '../../stores/about';
+	import { aboutStore } from '$stores/about';
 
 	export async function load({ session }) {
 		if (session) {
@@ -17,9 +17,9 @@
 </script>
 
 <script lang="ts">
-	import type About from '../../types/About';
-	import Image from '../../components/shared/Image.svelte';
-	import type Layout from '../../types/Layout';
+	import type About from '$types/About';
+	import Image from '$components/shared/Image.svelte';
+	import type Layout from '$types/Layout';
 
 	export let session: Layout;
 	export let about: About;

@@ -12,10 +12,10 @@
 </script>
 
 <script lang="ts">
-	import TopBar from '../components/layout/TopBar.svelte';
-	import Cursor from '../components/shared/Cursor.svelte';
-	import Footer from '../components/layout/Footer.svelte';
-	import type Layout from '../types/Layout';
+	import TopBar from '$components/layout/TopBar.svelte';
+	import Cursor from '$components/shared/Cursor.svelte';
+	import Footer from '$components/layout/Footer.svelte';
+	import type Layout from '$types/Layout';
 
 	export let session: Layout;
 </script>

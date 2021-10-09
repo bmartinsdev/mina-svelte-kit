@@ -1,4 +1,4 @@
-import type LayoutContent from './LayoutContent'
+import type LayoutContent from '$types/LayoutContent'
 
 export default interface Layout {
     maintenance: boolean,

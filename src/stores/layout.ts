@@ -1,5 +1,5 @@
-import type LayoutContent from '../types/LayoutContent';
-import space, { parseContentfulHtml } from './contentful';
+import type LayoutContent from '$types/LayoutContent';
+import space, { parseContentfulHtml } from '$stores/contentful';
 
 
 

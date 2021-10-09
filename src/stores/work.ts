@@ -1,7 +1,7 @@
-import type Work from '../types/Work';
-import type WorkList from '../types/WorkList';
-import space from './contentful';
-import { parseContentfulHtml, parseContentfulImage } from './contentful';
+import type Work from '$types/Work';
+import type WorkList from '$types/WorkList';
+import space from '$stores/contentful';
+import { parseContentfulHtml, parseContentfulImage } from '$stores/contentful';
 
 // Default getList parameteres
 const getListFields = ['slug', 'title', 'subtitle', 'thumbnail', 'order'];
@@ -29,7 +29,7 @@ const get = async (slug: string, locale: string) => {
 
 	if (!res.items?.length) throw new Error('Bad response');
 	const work = res.items[0];
-	console.log(work.fields);
+
 	// Parse description
 	if (work.fields['description']?.nodeType) {
 		work.fields['description'] = parseContentfulHtml(work.fields['description'])

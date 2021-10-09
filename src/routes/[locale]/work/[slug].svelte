@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { workStore } from '../../../stores/work';
+	import { workStore } from '$stores/work';
 
 	export async function load({ session, page }) {
 		const slug = page?.params?.slug;
@@ -18,9 +18,9 @@
 </script>
 
 <script lang="ts">
-	import type Work from '../../../types/Work';
-	import type Layout from '../../../types/Layout';
-	import Image from '../../../components/shared/Image.svelte';
+	import type Work from '$types/Work';
+	import type Layout from '$types/Layout';
+	import Image from '$components/shared/Image.svelte';
 
 	export let session: Layout;
 	export let work: Work;

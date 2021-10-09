@@ -1,4 +1,4 @@
-import type Image from './Image'
+import type Image from '$types/Image'
 export default interface Work {
     id: string,
     title: string,

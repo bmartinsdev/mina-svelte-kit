@@ -20,7 +20,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import type Layout from '../../types/Layout';
+	import type Layout from '$types/Layout';
 
 	export let session: Layout;
 

@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { workStore } from '../../../stores/work';
+	import { workStore } from '$stores/work';
 
 	export async function load({ session }) {
 		if (session) {
@@ -17,8 +17,8 @@
 </script>
 
 <script lang="ts">
-	import type WorkList from '../../../types/WorkList';
-	import type Layout from '../../../types/Layout';
+	import type WorkList from '$types/WorkList';
+	import type Layout from '$types/Layout';
 	import { goto } from '$app/navigation';
 
 	export let session: Layout;

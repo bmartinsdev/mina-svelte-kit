@@ -1,6 +1,6 @@
 // Default export of contentful plugin is in cjs, so we import esm js file
 import { createClient } from 'contentful/dist/es-modules/contentful.js';
-import type Image from '../types/Image';
+import type Image from '$types/Image';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 const space = import.meta.env.VITE_CONTENTFUL_SPACE_ID as string;

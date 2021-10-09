@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type Image from '../../types/Image';
+	import type Image from '$types/Image';
 
 	export let img: Image;
 	let src = '';

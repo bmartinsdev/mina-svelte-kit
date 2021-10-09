@@ -1,5 +1,5 @@
-import { layoutStore } from './stores/layout';
-import type Layout from './types/Layout';
+import { layoutStore } from '$stores/layout';
+import type Layout from '$types/Layout';
 import type { Handle, GetSession } from '@sveltejs/kit';
 import cookie from 'cookie';
 

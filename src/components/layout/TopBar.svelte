@@ -1,7 +1,7 @@
 <script lang="ts">
-	import DarkModeToggle from './DarkModeToggle.svelte';
-	import Logo from './Logo.svelte';
-	import Menu from './Menu.svelte';
+	import DarkModeToggle from '$components/layout/DarkModeToggle.svelte';
+	import Logo from '$components/layout/Logo.svelte';
+	import Menu from '$components/layout/Menu.svelte';
 	export let locale;
 	export let maintenance;
 </script>
