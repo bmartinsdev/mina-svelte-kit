@@ -13,7 +13,7 @@ const getListParams = {
 };
 
 // Default get parameteres
-const getFields = ['title', 'slug', 'description', 'subtitle', 'date', 'gallery'];
+const getFields = ['title', 'slug', 'description', 'subtitle', 'date', 'gallery', 'seoDescription'];
 const getParams = {
 	select: `sys.id,fields.${getFields.join(',fields.')}`,
 	limit: 1,

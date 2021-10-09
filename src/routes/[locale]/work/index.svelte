@@ -26,22 +26,21 @@
 
 	async function loadMore() {
 		const returnedWorks = await workStore.getList(session.locale, works.items.length);
-		// Push new works avoiding duplicates
+
+		// Create new works array, removing duplicates
 		const workIds = new Set(works.items.map((work) => work.id));
 		returnedWorks.items = [
 			...works.items,
 			...returnedWorks.items.filter((work) => !workIds.has(work.id))
 		];
+
 		works = returnedWorks;
 	}
 
 	async function goToRoute(slug: string) {
 		const goToRoute = `${window.location.pathname}/${slug}`;
 
-		// Required for session preload with the right language
-		window.location.pathname = goToRoute;
-
-		goto(goToRoute, { noscroll: true });
+		goto(goToRoute);
 	}
 </script>
 

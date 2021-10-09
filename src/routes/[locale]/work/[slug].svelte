@@ -27,8 +27,8 @@
 </script>
 
 <svelte:head>
-	<title>{session.content.seoTitle} • {session.content.seoTitle}</title>
-	<meta name="description" content={session.content.seoTitle} />
+	<title>{session.content.seoTitle} • {work.title}</title>
+	<meta name="description" content={work.seoDescription} />
 </svelte:head>
 
 <div class="works">

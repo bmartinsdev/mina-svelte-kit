@@ -18,7 +18,7 @@ export function parseContentfulHtml(contentfulHtml): string {
 export function parseContentfulImage(contentfulImage): Image {
 	return {
 		thumb: `${contentfulImage.fields.file.url}?w=200&h=200&fm=webp`,
-		large: `${contentfulImage.fields.file.url}?w=1400&h=1400&fm=webp`,
+		large: `${contentfulImage.fields.file.url}?w=1100&h=1100&fm=webp`,
 		title: contentfulImage.fields.title
 	}
 }

@@ -6,6 +6,7 @@ export default interface Work {
     subtitle: string,
     thumbnail: Image,
     description?: string,
+    seoDescription?: string,
     date?: Date,
     gallery?: Image[],
 }
