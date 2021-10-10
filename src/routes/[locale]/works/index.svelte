@@ -76,15 +76,27 @@
 			margin-bottom: 2%;
 			&.small {
 				width: 26%;
+				@media (max-width: 916px) {
+					width: 38%;
+				}
 				figure {
-					padding-top: calc(100% / (670 / 900));
+					padding-top: calc(100% / 0.8);
 				}
 			}
 			&.medium {
 				width: 32%;
+				@media (max-width: 916px) {
+					width: 60%;
+				}
 			}
 			&.large {
 				width: 38%;
+				figure {
+					padding-top: 100%;
+				}
+				@media (max-width: 916px) {
+					width: 100%;
+				}
 			}
 		}
 
