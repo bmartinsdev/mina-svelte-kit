@@ -4,11 +4,6 @@
 	let interval;
 	let mousePos = { x: 0, y: 0 };
 	let mouseState = 'default';
-	let stuck = {
-		active: false,
-		x: 0,
-		y: 0
-	};
 
 	onMount(() => {
 		// Trigger mousemove follow
@@ -30,24 +25,15 @@
 	}
 
 	function handleMouseMove(e) {
-		if (!stuck.active) {
-			mousePos = { x: e.clientX, y: e.clientY };
-		} else {
-			mousePos = { x: stuck.x, y: stuck.y };
-		}
+		mousePos = { x: e.clientX, y: e.clientY };
 	}
-	function handleMouseEnter(e) {
-		const navItem = e.currentTarget;
-		const navItemBox = navItem.getBoundingClientRect();
-		mouseState = 'hover';
 
-		stuck.x = Math.round(navItemBox.left + navItemBox.width / 2);
-		stuck.y = Math.round(navItemBox.top + navItemBox.height / 2);
-		stuck.active = true;
+	function handleMouseEnter(e) {
+		mouseState = 'hover';
 	}
+
 	function handleMouseLeave() {
 		mouseState = 'default';
-		stuck.active = false;
 	}
 </script>
 
@@ -73,8 +59,7 @@
 			background-color: var(--color);
 			transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 				width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
-				background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
-				left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1), top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+				background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
 		}
 	}
 </style>

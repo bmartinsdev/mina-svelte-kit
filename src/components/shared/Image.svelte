@@ -3,6 +3,7 @@
 	import type Image from '$types/Image';
 
 	export let img: Image;
+	export let htmlProps: any = {};
 	let src = '';
 	let alt = '';
 	let blurred = true;
@@ -20,11 +21,12 @@
 	});
 </script>
 
-<img {src} {alt} class:blurred loading="lazy" />
+<img {src} {alt} class:blurred {...htmlProps} />
 
 <style lang="scss">
 	img {
 		width: 100%;
+		height: 100%;
 		&.blurred {
 			filter: blur(2px);
 		}

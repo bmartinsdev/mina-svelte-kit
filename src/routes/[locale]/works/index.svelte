@@ -52,9 +52,11 @@
 
 <div class="works">
 	{#each works.items as work}
-		<article class={work.type} on:click={() => goToRoute(work.slug)}>
+		<article class="cursor--hover {work.type}" on:click={() => goToRoute(work.slug)}>
 			<figure>
-				<Image img={work.thumbnail} />
+				<div class="thumbnail-holder">
+					<Image img={work.thumbnail} htmlProps={{ class: 'thumbnail-image' }} />
+				</div>
 			</figure>
 		</article>
 	{/each}
@@ -70,14 +72,30 @@
 		gap: 2%;
 
 		article {
+			position: relative;
+			margin-bottom: 2%;
 			&.small {
 				width: 26%;
+				figure {
+					padding-top: calc(100% / (670 / 900));
+				}
 			}
 			&.medium {
 				width: 32%;
 			}
 			&.large {
 				width: 38%;
+			}
+		}
+
+		.thumbnail-holder {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			:global(.thumbnail-image) {
+				object-fit: cover;
 			}
 		}
 	}
