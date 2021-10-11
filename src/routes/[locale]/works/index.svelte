@@ -17,6 +17,7 @@
 </script>
 
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Image from '$components/shared/Image.svelte';
 	import type WorkList from '$types/WorkList';
 	import type Layout from '$types/Layout';
@@ -24,8 +25,12 @@
 
 	export let session: Layout;
 	export let works: WorkList;
+	let loadingMore: boolean = false;
 
 	async function loadMore() {
+		if (loadingMore || !works.missing) return;
+
+		loadingMore = true;
 		const returnedWorks = await workStore.getList(session.locale, works.items.length);
 
 		// Create new works array, removing duplicates
@@ -34,7 +39,7 @@
 			...works.items,
 			...returnedWorks.items.filter((work) => !workIds.has(work.id))
 		];
-
+		loadingMore = false;
 		works = returnedWorks;
 	}
 
@@ -43,6 +48,19 @@
 
 		goto(goToRoute);
 	}
+
+	function handleScroll(e) {
+		if (
+			e.target.documentElement.scrollHeight - e.target.documentElement.scrollTop - 200 <=
+			e.target.documentElement.clientHeight
+		) {
+			loadMore();
+		}
+	}
+
+	onMount(() => {
+		document.onscroll = handleScroll;
+	});
 </script>
 
 <svelte:head>
@@ -52,7 +70,7 @@
 
 <div class="works">
 	{#each works.items as work}
-		<article class="cursor--hover {work.type}" on:click={() => goToRoute(work.slug)}>
+		<article id={work.slug} class="cursor--hover {work.type}" on:click={() => goToRoute(work.slug)}>
 			<figure>
 				<div class="thumbnail-holder">
 					<Image img={work.thumbnail} htmlProps={{ class: 'thumbnail-image' }} />
@@ -60,7 +78,6 @@
 			</figure>
 		</article>
 	{/each}
-	{#if works.missing > 0}<h1 on:click={loadMore}>Load more</h1>{/if}
 </div>
 
 <style lang="scss">

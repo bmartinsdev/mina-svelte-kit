@@ -6,29 +6,43 @@
 	export let htmlProps: any = {};
 	let src = '';
 	let alt = '';
-	let blurred = true;
+	let loaded = false;
 	onMount(() => {
-		src = img.thumb;
-		const loaded = new Image();
-		loaded.src = img.large;
+		const imageLoad = new Image();
+		imageLoad.src = img.large;
 
-		loaded.onload = () => {
-			setTimeout(() => {
-				src = img.large;
-				blurred = false;
-			}, 200);
+		imageLoad.onload = () => {
+			src = img.large;
+			setTimeout(() => (loaded = true), 100);
 		};
 	});
 </script>
 
-<img {src} {alt} class:blurred {...htmlProps} />
+<div class="image-holder">
+	<div class="overlay" class:loaded />
+	<img {src} {alt} {...htmlProps} />
+</div>
 
 <style lang="scss">
-	img {
+	.image-holder {
 		width: 100%;
 		height: 100%;
-		&.blurred {
-			filter: blur(2px);
+		.overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: var(--bg-color);
+			opacity: 1;
+			transition: opacity 0.4s ease-in-out;
+			&.loaded {
+				opacity: 0;
+			}
+		}
+		img {
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>
