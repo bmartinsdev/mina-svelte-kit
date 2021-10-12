@@ -4,23 +4,21 @@
 
 	export let img: Image;
 	export let htmlProps: any = {};
-	let src = '';
 	let alt = '';
-	let loaded = false;
+	let loading = true;
 	onMount(() => {
 		const imageLoad = new Image();
 		imageLoad.src = img.large;
 
 		imageLoad.onload = () => {
-			src = img.large;
-			setTimeout(() => (loaded = true), 100);
+			loading = false;
 		};
 	});
 </script>
 
 <div class="image-holder">
-	<div class="overlay" class:loaded />
-	<img {src} {alt} {...htmlProps} />
+	<div class="overlay" class:loading />
+	<img src={img.large} {alt} {...htmlProps} />
 </div>
 
 <style lang="scss">
@@ -33,11 +31,12 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			background-color: var(--bg-color);
-			opacity: 1;
+			background-color: var(--overlay-color);
+			opacity: 0;
 			transition: opacity 0.4s ease-in-out;
-			&.loaded {
-				opacity: 0;
+			&.loading {
+				opacity: 1;
+				animation: pulseOpacity 1.4s ease-out infinite;
 			}
 		}
 		img {

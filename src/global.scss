@@ -8,11 +8,13 @@
 
     --bg-color: #1c1c1c;
     --color: #ffffff;
+    --overlay-color: #242424;
 }
 body {
     &.light {
         --bg-color: #ffffff;
         --color: #1c1c1c;
+        --overlay-color: #f0f0f0;
     }
     cursor: none;
     color: var(--color);
@@ -54,4 +56,17 @@ p {
     font-family: var(--font-archivo);
     font-size: 1rem;
     font-weight: 100;
+}
+
+//Animations
+@keyframes pulseOpacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0;
+    }
 }

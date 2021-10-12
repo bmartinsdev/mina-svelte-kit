@@ -50,7 +50,7 @@
 		pointer-events: none;
 		mix-blend-mode: difference;
 		background-color: var(--color);
-		border: 2px solid var(--color);
+		border: 2px solid transparent;
 		transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 			width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 			background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -59,6 +59,7 @@
 			height: 40px;
 			mix-blend-mode: unset;
 			background-color: transparent;
+			border-color: #ccc;
 			transition: height 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 				width 0.8s cubic-bezier(0.39, 0.575, 0.565, 1),
 				background-color 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
