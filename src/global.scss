@@ -9,12 +9,14 @@
     --bg-color: #1c1c1c;
     --color: #ffffff;
     --overlay-color: #242424;
+    --overlay-color-faded: #24242480;
 }
 body {
     &.light {
         --bg-color: #ffffff;
         --color: #1c1c1c;
         --overlay-color: #f0f0f0;
+        --overlay-color-faded: #f0f0f080;
     }
     cursor: none;
     color: var(--color);

@@ -3,7 +3,7 @@
 		if (!['en', 'pt'].includes(page?.params?.locale)) {
 			return {
 				status: 301,
-				redirect: `/en/${page.path}`
+				redirect: `/en${page.path}`
 			};
 		}
 		if (session) {

@@ -72,6 +72,10 @@
 	{#each works.items as work}
 		<article id={work.slug} class="cursor--hover {work.type}" on:click={() => goToRoute(work.slug)}>
 			<figure>
+				<div class="overlay">
+					<h2>{work.title}</h2>
+					<p>{work.subtitle}</p>
+				</div>
 				<div class="thumbnail-holder">
 					<Image img={work.thumbnail} htmlProps={{ class: 'thumbnail-image' }} />
 				</div>
@@ -114,6 +118,43 @@
 				@media (max-width: 916px) {
 					width: 100%;
 				}
+			}
+		}
+		.overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: var(--overlay-color-faded);
+			z-index: 1;
+			opacity: 0;
+			transition: opacity 0.4s ease-in-out;
+			display: flex;
+			flex-direction: column;
+			padding: 2rem;
+			justify-content: flex-end;
+			h2,
+			p {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			h2 {
+				font-size: 1.4rem;
+			}
+			@media (max-width: 576px) {
+				padding: 1rem;
+				h2 {
+					font-size: 1.2rem;
+				}
+				p {
+					font-size: 1rem;
+				}
+			}
+			&:hover {
+				opacity: 1;
 			}
 		}
 

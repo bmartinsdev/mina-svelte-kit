@@ -8,10 +8,11 @@
 - [x] SSR session with layout info from contentful
 - [x] Fonts
 - [x] TailwindCss
-- [ ] Light / Dark mode setup
-- [ ] Layout structure
-- [ ] Homepage
-- [ ] About
-- [ ] Works
+- [x] Light / Dark mode setup
+- [x] Layout structure
+- [x] Homepage
+- [x] About
+- [x] Works
 - [ ] Work single page
-- [ ] ...
+- [ ] Add global css for reused properties
+- [ ] Add 404 and error pages
