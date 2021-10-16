@@ -25,6 +25,7 @@
 	.image-holder {
 		width: 100%;
 		height: 100%;
+		position: relative;
 		.overlay {
 			width: 100%;
 			height: 100%;

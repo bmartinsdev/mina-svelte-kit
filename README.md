@@ -15,4 +15,4 @@
 - [x] Works
 - [ ] Work single page
 - [ ] Add global css for reused properties
-- [ ] Add 404 and error pages
+- [x] Add 404 and error pages
