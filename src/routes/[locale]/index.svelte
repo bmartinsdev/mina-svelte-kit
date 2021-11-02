@@ -32,7 +32,7 @@
 </svelte:head>
 
 <section class="flex justify-center items-center flex-col banner">
-	<h1 class="text-center cursor--hover">
+	<h1 id="spinner" class="text-center cursor--hover">
 		{@html session.content.homeTitle}
 	</h1>
 	<div class="overlay flex justify-center items-center">
@@ -156,6 +156,42 @@
 			.right {
 				transition: width 0.4s ease-in-out;
 			}
+		}
+	}
+	#spinner {
+		animation-name: spin, depth;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-duration: 14s;
+		text-align: center;
+	}
+	@keyframes spin {
+		from {
+			transform: rotateY(0deg);
+		}
+		to {
+			transform: rotateY(-360deg);
+		}
+	}
+	@keyframes depth {
+		0% {
+			text-shadow: 0 0 var(--overlay-color-faded);
+		}
+		25% {
+			text-shadow: 2px 0 var(--overlay-color-faded), 3px 0 var(--overlay-color-faded),
+				4px 0 var(--overlay-color-faded), 5px 0 var(--overlay-color-faded),
+				6px 0 var(--overlay-color-faded);
+		}
+		50% {
+			text-shadow: 0 0 var(--overlay-color-faded);
+		}
+		75% {
+			text-shadow: -2px 0 var(--overlay-color-faded), -3px 0 var(--overlay-color-faded),
+				-4px 0 var(--overlay-color-faded), -5px 0 var(--overlay-color-faded),
+				-6px 0 var(--overlay-color-faded);
+		}
+		100% {
+			text-shadow: 0 0 var(--overlay-color-faded);
 		}
 	}
 </style>
