@@ -12,18 +12,12 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	import type Layout from '$types/Layout';
+	import SimpleLogo from '$components/layout/SimpleLogo.svelte';
 
 	export let session: Layout;
 
 	let scrollY;
-	let loaded = false;
-
-	onMount(() => {
-		setTimeout(() => (loaded = true), 300);
-	});
 </script>
 
 <svelte:head>
@@ -32,19 +26,9 @@
 </svelte:head>
 
 <section class="flex justify-center items-center flex-col banner">
-	<h1 id="spinner" class="text-center cursor--hover">
-		{@html session.content.homeTitle}
+	<h1 class="text-center cursor--hover">
+		{session.locale === 'en' ? 'Hello' : 'Olá'}<SimpleLogo />{@html session.content.homeTitle}
 	</h1>
-	<div class="overlay flex justify-center items-center">
-		<div class="left flex left-0 {loaded && scrollY < 100 ? '' : 'open'}">
-			<div class="curtain flex-grow" />
-			<div class="gradient-bar" />
-		</div>
-		<div class="right flex right-0 {loaded && scrollY < 100 ? '' : 'open'}">
-			<div class="gradient-bar" />
-			<div class="curtain flex-grow" />
-		</div>
-	</div>
 </section>
 <section class="flex items-end bottom">
 	<div class="logo-holder">
@@ -75,9 +59,6 @@
 				id="path8"
 			/>
 		</svg>
-		<h2>
-			{@html session.content.slogan}
-		</h2>
 	</div>
 </section>
 
@@ -89,39 +70,46 @@
 		height: 60vh;
 		width: 100%;
 		overflow-x: hidden;
-		.overlay {
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			z-index: 5;
-			.left,
-			.right {
-				height: 60vh;
-				width: 20%;
-				position: absolute;
-				transition: width 1s ease-in-out;
-				&.open {
-					width: 160%;
+		h1 {
+			font-weight: 100;
+			font-size: 26px;
+			line-height: 35px;
+			:global(em) {
+				white-space: nowrap;
+				font-weight: 900;
+				font-style: normal;
+				text-transform: uppercase;
+				position: relative;
+				&:nth-child(2) {
+					&:before {
+						animation-delay: 1s;
+					}
 				}
-			}
-			.left .gradient-bar {
-				transform: translate(-1rem, -1rem) rotate(60deg);
-			}
-			.right .gradient-bar {
-				transform: translate(2rem, 9rem) rotate(60deg);
-			}
-			.gradient-bar {
-				width: 2rem;
-				height: 40vh;
-				background: rgb(167, 98, 211);
-				background: linear-gradient(0deg, rgba(167, 98, 211, 1) 0%, rgba(79, 231, 193, 1) 100%);
-				z-index: 10;
-			}
-			.curtain {
-				transition: background-color 0.4s ease-in-out;
-				background-color: var(--bg-color);
-				width: 100%;
-				height: 100%;
+				&:nth-child(4) {
+					&:before {
+						animation-delay: 2s;
+						animation-duration: 2s;
+					}
+				}
+				&:nth-child(5) {
+					&:before {
+						animation-delay: 3s;
+					}
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					width: 100%;
+					height: 120%;
+					top: -10%;
+					background: rgb(167, 98, 211);
+					background: linear-gradient(75deg, rgba(167, 98, 211, 1) 0%, rgba(79, 231, 193, 1) 100%);
+					z-index: 10;
+					animation-name: censor;
+					animation-timing-function: linear;
+					animation-iteration-count: infinite;
+					animation-duration: 4s;
+				}
 			}
 		}
 	}
@@ -135,63 +123,31 @@
 				width: 100%;
 				fill: var(--color);
 			}
-			h2 {
-				margin-top: 2rem;
-				font-weight: 100;
-				font-size: 1.6rem;
-				line-height: 1.7rem;
-			}
 		}
 	}
 	@media (max-width: 576px) {
 		.banner h1 {
 			font-size: 1.2rem;
 		}
-		.bottom .logo-holder h2 {
-			margin-top: 1rem;
-			font-size: 1rem;
-		}
-		.banner .overlay {
-			.left,
-			.right {
-				transition: width 0.4s ease-in-out;
-			}
-		}
 	}
-	#spinner {
-		animation-name: spin, depth;
-		animation-timing-function: linear;
-		animation-iteration-count: infinite;
-		animation-duration: 14s;
-		text-align: center;
-	}
-	@keyframes spin {
-		from {
-			transform: rotateY(0deg);
-		}
-		to {
-			transform: rotateY(-360deg);
-		}
-	}
-	@keyframes depth {
+
+	@keyframes censor {
 		0% {
-			text-shadow: 0 0 var(--overlay-color-faded);
+			width: 0%;
+			right: 0;
 		}
-		25% {
-			text-shadow: 2px 0 var(--overlay-color-faded), 3px 0 var(--overlay-color-faded),
-				4px 0 var(--overlay-color-faded), 5px 0 var(--overlay-color-faded),
-				6px 0 var(--overlay-color-faded);
+		40% {
+			width: 0%;
 		}
 		50% {
-			text-shadow: 0 0 var(--overlay-color-faded);
+			width: 100%;
+			left: 0;
 		}
-		75% {
-			text-shadow: -2px 0 var(--overlay-color-faded), -3px 0 var(--overlay-color-faded),
-				-4px 0 var(--overlay-color-faded), -5px 0 var(--overlay-color-faded),
-				-6px 0 var(--overlay-color-faded);
+		90% {
+			width: 100%;
 		}
 		100% {
-			text-shadow: 0 0 var(--overlay-color-faded);
+			width: 0%;
 		}
 	}
 </style>
