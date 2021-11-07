@@ -19,7 +19,7 @@
 		display: flex;
 		justify-content: space-between;
 		z-index: 30;
-		height: 10rem;
+		height: 150px;
 		.right-panel {
 			margin-top: 2rem;
 			margin-right: 2rem;

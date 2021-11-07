@@ -36,8 +36,10 @@
 <style lang="scss">
 	.banner {
 		position: relative;
-		height: 60vh;
+		height: calc(100vh - 150px);
+		padding: 2rem;
 		width: 100%;
+		padding-bottom: 150px;
 		overflow-x: hidden;
 		h1 {
 			font-weight: 100;
@@ -84,18 +86,6 @@
 				&:before {
 					animation-delay: 4s;
 				}
-			}
-		}
-	}
-	.bottom {
-		height: 50vh;
-		.logo-holder {
-			width: 28rem;
-			max-width: 70%;
-			margin: 2rem;
-			svg {
-				width: 100%;
-				fill: var(--color);
 			}
 		}
 	}
