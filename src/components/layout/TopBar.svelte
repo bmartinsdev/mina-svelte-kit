@@ -1,15 +1,16 @@
 <script lang="ts">
 	import DarkModeToggle from '$components/layout/DarkModeToggle.svelte';
 	import Logo from '$components/layout/Logo.svelte';
-	import Menu from '$components/layout/Menu.svelte';
 	export let locale;
 	export let maintenance;
 </script>
 
 <nav class="flex justify-between items-start">
-	<Logo />
+	<div class="left-panel">
+		<Logo />
+	</div>
+	<a sveltekit:prefetch href={`/${locale}/about`} class="cursor--hover menu">about</a>
 	<div class="right-panel">
-		{#if !maintenance}<Menu {locale} />{/if}
 		<DarkModeToggle />
 	</div>
 </nav>
@@ -18,11 +19,18 @@
 	nav {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		z-index: 30;
-		height: 150px;
+		.left-panel,
 		.right-panel {
-			margin-top: 2rem;
-			margin-right: 2rem;
+			margin: 2rem;
+			flex: 1;
+		}
+		.menu {
+			text-transform: uppercase;
+			font-family: var(--font-archivo);
+			font-size: 1rem;
+			line-height: 2rem;
 		}
 	}
 </style>

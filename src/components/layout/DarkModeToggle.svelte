@@ -37,6 +37,7 @@
 
 <style lang="scss">
 	.toggle-theme {
+		float: right;
 		width: 2rem;
 	}
 </style>
