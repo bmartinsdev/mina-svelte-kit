@@ -81,5 +81,10 @@
 				display: inline-block;
 			}
 		}
+		.contacts {
+			h2 {
+				font-size: 1.3rem;
+			}
+		}
 	}
 </style>

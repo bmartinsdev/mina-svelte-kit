@@ -163,6 +163,9 @@
 				@media (max-width: 916px) {
 					width: 38%;
 				}
+				@media (max-width: 576px) {
+					width: 100%;
+				}
 				figure {
 					padding-top: calc(100% / 0.8);
 				}
@@ -171,6 +174,9 @@
 				width: 32%;
 				@media (max-width: 916px) {
 					width: 60%;
+				}
+				@media (max-width: 576px) {
+					width: 100%;
 				}
 			}
 			&.large {

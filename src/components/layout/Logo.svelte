@@ -26,7 +26,7 @@
 
 <style lang="scss">
 	svg {
-		width: 4rem;
+		width: 3rem;
 	}
 	.logo-color {
 		fill: var(--color);
