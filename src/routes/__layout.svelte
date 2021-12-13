@@ -20,11 +20,19 @@
 	export let session: Layout;
 </script>
 
-<TopBar {...session} />
-<Cursor />
-<slot />
+<container>
+	<TopBar {...session} />
+	<Cursor />
+	<slot />
+</container>
 <Footer {...session.content} />
 
 <style lang="scss" global>
 	@import '../global.scss';
+	container {
+		max-width: 1100px;
+		display: block;
+		position: relative;
+		margin: 0 auto;
+	}
 </style>

@@ -33,11 +33,10 @@
 
 <div class="works">
 	<h3>{work.title}</h3>
-	<p>{@html work.description}</p>
+	<p class="mb-8 text-justify">{@html work.description}</p>
 	{#each work.gallery as img}
 		<Image {img} />
 	{/each}
-	<small>{work.subtitle}</small>
 </div>
 
 <style lang="scss">

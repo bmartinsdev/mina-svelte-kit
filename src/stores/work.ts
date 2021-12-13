@@ -3,7 +3,7 @@ import type WorkList from '$types/WorkList';
 import space from '$stores/contentful';
 import { parseContentfulHtml, parseContentfulImage } from '$stores/contentful';
 
-// Default getList parameteres
+// Default getList parameters
 const getListFields = ['slug', 'title', 'subtitle', 'thumbnail', 'order', 'type'];
 const getListParams = {
 	select: `sys.id,fields.${getListFields.join(',fields.')}`,
@@ -12,7 +12,7 @@ const getListParams = {
 	order: '-fields.order'
 };
 
-// Default get parameteres
+// Default get parameters
 const getFields = ['title', 'slug', 'description', 'subtitle', 'date', 'gallery', 'seoDescription'];
 const getParams = {
 	select: `sys.id,fields.${getFields.join(',fields.')}`,

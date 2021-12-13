@@ -2,7 +2,6 @@
 	import DarkModeToggle from '$components/layout/DarkModeToggle.svelte';
 	import Logo from '$components/layout/Logo.svelte';
 	export let locale;
-	export let maintenance;
 </script>
 
 <nav class="flex justify-between items-start">
