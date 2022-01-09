@@ -9,7 +9,7 @@
     --bg-color: #1c1c1c;
     --body-color: #ffffff;
     --color: #ffffff;
-    --overlay-color: #242424;
+    --overlay-color: #424242;
     --overlay-color-faded: #24242480;
 }
 body {
@@ -17,7 +17,7 @@ body {
         --bg-color: #ffffff;
         --body-color: #1c1c1c;
         --color: #1c1c1c;
-        --overlay-color: #f0f0f0;
+        --overlay-color: #adadad;
         --overlay-color-faded: #f0f0f080;
     }
     cursor: none;
@@ -69,12 +69,12 @@ p {
 //Animations
 @keyframes pulseOpacity {
     0% {
-        opacity: 0;
+        opacity: 0.2;
     }
     50% {
-        opacity: 0.4;
+        opacity: 0.6;
     }
     100% {
-        opacity: 0;
+        opacity: 0.2;
     }
 }

@@ -82,7 +82,7 @@
 			<figure>
 				<div class="overlay">
 					<h2>{work.title}</h2>
-					<p>{work.subtitle}</p>
+					{#if work.subtitle}<p>{work.subtitle}</p>{/if}
 				</div>
 				<div class="thumbnail-holder">
 					<Image img={work.thumbnail} htmlProps={{ class: 'thumbnail-image' }} />

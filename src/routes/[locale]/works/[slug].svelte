@@ -32,8 +32,12 @@
 </svelte:head>
 
 <div class="works">
-	<h3>{work.title}</h3>
-	<p class="mb-8 text-justify">{@html work.description}</p>
+	<div class="mb-8">
+		<h3>{work.title}</h3>
+		{#if work.description}
+			<p class="text-justify">{@html work.description}</p>
+		{/if}
+	</div>
 	{#each work.gallery as img}
 		<Image {img} />
 	{/each}

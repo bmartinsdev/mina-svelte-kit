@@ -16,16 +16,26 @@
 	});
 </script>
 
-<div class="image-holder">
-	<div class="overlay" class:loading />
+<div class="image-holder" class:loading>
+	<div class="overlay" />
 	<img src={img.large} {alt} {...htmlProps} />
 </div>
 
 <style lang="scss">
 	.image-holder {
+		min-height: 20%;
 		width: 100%;
 		height: 100%;
 		position: relative;
+		&.loading {
+			.overlay {
+				opacity: 1;
+				animation: pulseOpacity 1.4s ease-out infinite;
+			}
+			img {
+				opacity: 0;
+			}
+		}
 		.overlay {
 			width: 100%;
 			height: 100%;
@@ -35,14 +45,12 @@
 			background-color: var(--overlay-color);
 			opacity: 0;
 			transition: opacity 0.4s ease-in-out;
-			&.loading {
-				opacity: 1;
-				animation: pulseOpacity 1.4s ease-out infinite;
-			}
 		}
 		img {
 			width: 100%;
 			height: 100%;
+			transition: opacity 0.4s ease-in-out;
+			opacity: 1;
 		}
 	}
 </style>
