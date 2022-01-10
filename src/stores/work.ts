@@ -26,7 +26,6 @@ const get = async (slug: string, locale: string) => {
 		locale,
 		...getParams
 	});
-
 	if (!res.items?.length) throw new Error('Bad response');
 	const work = res.items[0];
 
@@ -39,13 +38,16 @@ const get = async (slug: string, locale: string) => {
 	if (work.fields['gallery']?.length) {
 		const gallery = [];
 		for (const image of work.fields['gallery']) {
-			gallery.push(parseContentfulImage(image));
+			if (image.fields?.file?.url) {
+				gallery.push(parseContentfulImage(image));
+			}
 		}
 		work.fields['gallery'] = gallery;
 	}
 
 	work.fields['id'] = work.sys.id;
 
+	console.log(work);
 	return work.fields as Work;
 };
 
