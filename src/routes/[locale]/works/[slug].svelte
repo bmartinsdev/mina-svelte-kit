@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
 	import { workStore } from '$stores/work';
 
-	export async function load({ session, page }) {
-		const slug = page?.params?.slug;
+	export async function load({ session, params }) {
+		const slug = params?.slug;
 		if (session) {
 			const work = await workStore.get(session.locale, slug);
 
