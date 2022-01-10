@@ -1,4 +1,4 @@
 export default interface Image {
-    large: string,
-    title: string
+	large: string;
+	title: string;
 }

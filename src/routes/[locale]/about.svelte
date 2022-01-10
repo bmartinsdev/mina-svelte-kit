@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import { aboutStore } from '$stores/about';
 
-	export async function load({ session }) {
+	export async function load({ session }): Promise<unknown> {
 		if (session) {
 			const about = await aboutStore.getContent(session.locale);
 

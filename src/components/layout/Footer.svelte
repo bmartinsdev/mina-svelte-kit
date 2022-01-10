@@ -2,8 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	export let copyright: string = '';
-	export let email: string = '';
+	export let copyright: '';
+	export let email: '';
 	export let socialNetworks: [string, string];
 	let currentLang: string;
 

@@ -1,8 +1,6 @@
 import type LayoutContent from '$types/LayoutContent';
 import space, { parseContentfulHtml } from '$stores/contentful';
 
-
-
 const get = async (locale: string) => {
 	const res: any = await space.getEntry('3tUUEUguOCqg1Uu2jjXq0I', { locale });
 
@@ -12,7 +10,7 @@ const get = async (locale: string) => {
 	}
 
 	return res.fields as LayoutContent;
-}
+};
 
 function createLayoutStore() {
 	return {

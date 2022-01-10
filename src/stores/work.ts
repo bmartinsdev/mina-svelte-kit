@@ -32,7 +32,7 @@ const get = async (slug: string, locale: string) => {
 
 	// Parse description
 	if (work.fields['description']?.nodeType) {
-		work.fields['description'] = parseContentfulHtml(work.fields['description'])
+		work.fields['description'] = parseContentfulHtml(work.fields['description']);
 	}
 
 	// Gallery image parse
@@ -47,9 +47,9 @@ const get = async (slug: string, locale: string) => {
 	work.fields['id'] = work.sys.id;
 
 	return work.fields as Work;
-}
+};
 
-const getList = async (locale: string, skip: number = 0) => {
+const getList = async (locale: string, skip = 0) => {
 	const res: any = await space.getEntries({
 		locale,
 		skip,
@@ -66,13 +66,13 @@ const getList = async (locale: string, skip: number = 0) => {
 	for (const item of res.items) {
 		// Image parse
 		if (item.fields['thumbnail']?.fields?.file) {
-			item.fields['thumbnail'] = parseContentfulImage(item.fields['thumbnail'])
+			item.fields['thumbnail'] = parseContentfulImage(item.fields['thumbnail']);
 		}
 		newWorkList.items.push({ ...item.fields, id: item.sys.id } as Work);
 	}
 
 	return newWorkList;
-}
+};
 
 function createWorkStore() {
 	return {
@@ -83,7 +83,7 @@ function createWorkStore() {
 				console.log(e.message);
 			}
 		},
-		getList: async (locale: string, skip: number = 0): Promise<WorkList> => {
+		getList: async (locale: string, skip = 0): Promise<WorkList> => {
 			try {
 				return await getList(locale, skip);
 			} catch (e) {

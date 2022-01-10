@@ -28,7 +28,7 @@
 		mousePos = { x: e.clientX, y: e.clientY };
 	}
 
-	function handleMouseEnter(e) {
+	function handleMouseEnter() {
 		mouseState = 'hover';
 	}
 

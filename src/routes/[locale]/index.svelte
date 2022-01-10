@@ -26,9 +26,9 @@
 
 	export let session: Layout;
 	export let works: WorkList;
-	let loadingMore: boolean = false;
+	let loadingMore = false;
 
-	async function loadMore() {
+	async function loadMore(): Promise<void> {
 		if (loadingMore || !works.missing) return;
 
 		loadingMore = true;

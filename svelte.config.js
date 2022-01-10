@@ -1,14 +1,15 @@
 // svelte.config.js
-import adapter from '@sveltejs/adapter-netlify'
-import preprocess from 'svelte-preprocess'
-import path from 'path'
+import netlify from '@sveltejs/adapter-netlify';
+import preprocess from 'svelte-preprocess';
+import path from 'path';
 
+/** @type {import('@sveltejs/kit').Config} */
 export default {
 	preprocess: preprocess({
 		postcss: process.env.NODE_ENV === 'production'
 	}),
 	kit: {
-		adapter: adapter(),
+		adapter: netlify(),
 		target: `#svelte`,
 		vite: {
 			resolve: {

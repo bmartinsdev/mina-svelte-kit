@@ -1,80 +1,80 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
-    --font-archivo: "Archivo", sans-serif;
-    --font-rozha: "Rozha One", serif;
+	--font-archivo: 'Archivo', sans-serif;
+	--font-rozha: 'Rozha One', serif;
 
-    --bg-color: #1c1c1c;
-    --body-color: #ffffff;
-    --color: #ffffff;
-    --overlay-color: #424242;
-    --overlay-color-faded: #24242480;
+	--bg-color: #1c1c1c;
+	--body-color: #ffffff;
+	--color: #ffffff;
+	--overlay-color: #424242;
+	--overlay-color-faded: #24242480;
 }
 body {
-    &.light {
-        --bg-color: #ffffff;
-        --body-color: #1c1c1c;
-        --color: #1c1c1c;
-        --overlay-color: #adadad;
-        --overlay-color-faded: #f0f0f080;
-    }
-    cursor: none;
-    color: var(--color);
-    background-color: var(--body-color);
-    font-family: var(--font-rozha);
-    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
-    .cursor--hover {
-        cursor: none;
-    }
+	&.light {
+		--bg-color: #ffffff;
+		--body-color: #1c1c1c;
+		--color: #1c1c1c;
+		--overlay-color: #adadad;
+		--overlay-color-faded: #f0f0f080;
+	}
+	cursor: none;
+	color: var(--color);
+	background-color: var(--body-color);
+	font-family: var(--font-rozha);
+	transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+	.cursor--hover {
+		cursor: none;
+	}
 }
 main {
-    background-color: var(--bg-color);
-    transition: background-color 0.4s ease-in-out;
+	background-color: var(--bg-color);
+	transition: background-color 0.4s ease-in-out;
 }
 
 h1,
 h2 {
-    font-family: var(--font-archivo);
-    font-weight: 900;
+	font-family: var(--font-archivo);
+	font-weight: 900;
 }
 h3,
 h4,
 h5 {
-    font-family: var(--font-rozha);
+	font-family: var(--font-rozha);
 }
 h1 {
-    font-size: 2rem;
+	font-size: 2rem;
 }
 h2 {
-    font-size: 1.8rem;
+	font-size: 1.8rem;
 }
 h3 {
-    font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 h4 {
-    font-size: 1.4rem;
+	font-size: 1.4rem;
 }
 h5 {
-    font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 p {
-    font-family: var(--font-archivo);
-    font-size: 1rem;
-    font-weight: 100;
+	font-family: var(--font-archivo);
+	font-size: 1rem;
+	font-weight: 100;
 }
 
 //Animations
 @keyframes pulseOpacity {
-    0% {
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 0.2;
-    }
+	0% {
+		opacity: 0.2;
+	}
+	50% {
+		opacity: 0.6;
+	}
+	100% {
+		opacity: 0.2;
+	}
 }

@@ -3,7 +3,7 @@
 	import type Image from '$types/Image';
 
 	export let img: Image;
-	export let htmlProps: any = {};
+	export let htmlProps: unknown = {};
 	let alt = '';
 	let loading = true;
 	onMount(() => {

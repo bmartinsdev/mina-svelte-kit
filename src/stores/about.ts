@@ -9,22 +9,21 @@ const getContent = async (locale: string) => {
 	// Html parser
 	for (const field of ['description', 'bio']) {
 		if (res.fields[field]?.nodeType) {
-			res.fields[field] = parseContentfulHtml(res.fields[field])
+			res.fields[field] = parseContentfulHtml(res.fields[field]);
 		}
 	}
 
 	//Image parser
 	for (const field of ['image', 'photo']) {
 		if (res.fields[field]?.fields?.file) {
-			res.fields[field] = parseContentfulImage(res.fields[field])
+			res.fields[field] = parseContentfulImage(res.fields[field]);
 		}
 	}
 
 	return res.fields as About;
-}
+};
 
 function createAboutStore() {
-
 	return {
 		getContent: async (locale: string) => {
 			try {
