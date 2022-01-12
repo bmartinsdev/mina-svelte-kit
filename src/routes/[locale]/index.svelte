@@ -23,6 +23,7 @@
 	import type WorkList from '$types/WorkList';
 	import type Layout from '$types/Layout';
 	import { goto } from '$app/navigation';
+	import ScrollToTop from '$components/layout/ScrollToTop.svelte';
 
 	export let session: Layout;
 	export let works: WorkList;
@@ -91,6 +92,7 @@
 		</article>
 	{/each}
 </section>
+<ScrollToTop />
 
 <svelte:window bind:scrollY />
 
@@ -106,7 +108,7 @@
 			line-height: 35px;
 			:global(em) {
 				white-space: nowrap;
-				font-weight: 900;
+				font-weight: 800;
 				font-style: normal;
 				text-transform: uppercase;
 				position: relative;
@@ -154,7 +156,6 @@
 		margin: 2rem;
 		min-height: 60vh;
 		gap: 2%;
-
 		article {
 			position: relative;
 			margin-bottom: 2%;
@@ -177,6 +178,9 @@
 				}
 				@media (max-width: 576px) {
 					width: 100%;
+					figure {
+						padding-top: 100%;
+					}
 				}
 			}
 			&.large {
@@ -211,12 +215,12 @@
 			}
 
 			h2 {
-				font-size: 1.4rem;
+				font-size: 1.2rem;
 			}
 			@media (max-width: 576px) {
 				padding: 1rem;
 				h2 {
-					font-size: 1.2rem;
+					font-size: 1.1rem;
 				}
 				p {
 					font-size: 1rem;

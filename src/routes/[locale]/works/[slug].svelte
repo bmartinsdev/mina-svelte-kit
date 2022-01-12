@@ -21,6 +21,7 @@
 	import type Work from '$types/Work';
 	import type Layout from '$types/Layout';
 	import Image from '$components/shared/Image.svelte';
+	import ScrollToTop from '$components/layout/ScrollToTop.svelte';
 
 	export let session: Layout;
 	export let work: Work;
@@ -42,6 +43,7 @@
 		<Image {img} />
 	{/each}
 </div>
+<ScrollToTop />
 
 <style lang="scss">
 	.works {

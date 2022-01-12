@@ -12,6 +12,9 @@
 	--overlay-color: #424242;
 	--overlay-color-faded: #24242480;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
 	&.light {
 		--bg-color: #ffffff;
@@ -37,7 +40,7 @@ main {
 h1,
 h2 {
 	font-family: var(--font-archivo);
-	font-weight: 900;
+	font-weight: 800;
 }
 h3,
 h4,

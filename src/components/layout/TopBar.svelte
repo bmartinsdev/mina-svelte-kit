@@ -8,7 +8,9 @@
 	<div class="left-panel">
 		<Logo />
 	</div>
-	<a sveltekit:prefetch href={`/${locale}/about`} class="cursor--hover menu">about</a>
+	<a sveltekit:prefetch href={`/${locale}/about`} class="cursor--hover menu">
+		{#if locale == 'pt'}sobre{:else}about{/if}</a
+	>
 	<div class="right-panel">
 		<DarkModeToggle />
 	</div>

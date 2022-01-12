@@ -26,8 +26,12 @@
 
 <footer class="flex justify-between items-end">
 	<ul class="language">
-		<li on:click={() => swapLang('en')} class={currentLang !== 'en' ? 'cursor--hover' : ''}>en</li>
-		<li on:click={() => swapLang('pt')} class={currentLang !== 'pt' ? 'cursor--hover' : ''}>pt</li>
+		<li on:click={() => swapLang('en')} class={currentLang !== 'en' ? 'cursor--hover' : 'selected'}>
+			en
+		</li>
+		<li on:click={() => swapLang('pt')} class={currentLang !== 'pt' ? 'cursor--hover' : 'selected'}>
+			pt
+		</li>
 	</ul>
 	<h4 class="copyright">{@html copyright}</h4>
 	<nav class="contacts">
@@ -51,6 +55,9 @@
 		.language {
 			font-size: 1.3rem;
 			margin: 0.4rem;
+			.selected {
+				text-decoration: line-through;
+			}
 		}
 		.copyright {
 			font-family: var(--font-archivo);
